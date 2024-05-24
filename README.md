@@ -9,8 +9,8 @@ Data storage of invoice information of Children's Hospital
 
 ## Data decription
 
--   ERD Datawarehouse
-    ![ERD](Database/DW-ERD.png)
+- ERD Datawarehouse
+  ![ERD](Database/DW-ERD.png)
 
 Data is taken from data sources taken from hospitals. Hopefully, data is a collection of information about patients' medical examinations, transactions, services, accounts, clinics... compiled based on chemistry. hospital application in 2016.
 
@@ -24,18 +24,18 @@ To synthesize and store the above data for the purpose of analyzing operational 
 
 Here is the general process for handling data cleansing:
 
--   Split tables from common data into separate tables
--   Delete duplicate lines
--   Remove the null value of the \_ID column to avoid errors in the primary key of the tables
--   Handle and replace null values for the remaining columns of each table
-    ![cleandata](Database/Clean-data.png)
+- Split tables from common data into separate tables
+- Delete duplicate lines
+- Remove the null value of the \_ID column to avoid errors in the primary key of the tables
+- Handle and replace null values for the remaining columns of each table
+  ![cleandata](Database/Clean-data.png)
 
 ### 2. Load the temporary table that stores foreign key information
 
--   Select the invoice ID columns so that it can store information about each invoice detail, making it easy to create a fact table.
--   Do not delete duplicates here, because there will be service invoices used multiple times by the same patient and recorded at the same time.
--   For example: if a person uses hospital bed service for 4 nights, when recording the bill, it will be duplicated 4 times.
-    ![stagefact](Database/Load-factbill-stage.png)
+- Select the invoice ID columns so that it can store information about each invoice detail, making it easy to create a fact table.
+- Do not delete duplicates here, because there will be service invoices used multiple times by the same patient and recorded at the same time.
+- For example: if a person uses hospital bed service for 4 nights, when recording the bill, it will be duplicated 4 times.
+  ![stagefact](Database/Load-factbill-stage.png)
 
 ### 3. Load time stage
 
@@ -92,7 +92,3 @@ Finally, perform data warehouse visualization using Power BI according to the pa
 ![SalesBI](Database/BI-Sales-report.png)
 ![PatientBI](Database/BI-Patient-report.png)
 ![DoctorBI](Database/BI-Doctor-report.png)
-
-## Support
-
-For support, email luongvudinhduy2003@gmail.com
